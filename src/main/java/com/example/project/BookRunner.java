@@ -182,6 +182,7 @@ public class BookRunner
                         System.out.println("•───────•°•❀•°•───────•");
                         IdGenerate.reset();
                         System.out.println("Current ID: " + IdGenerate.getCurrentId());
+                        scan.nextLine();
                     }
                     clearScreen();
                 }
