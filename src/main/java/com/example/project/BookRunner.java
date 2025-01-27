@@ -183,7 +183,11 @@ public class BookRunner
                 clearScreen();
                 while (true)
                 {
+                    System.out.println("╭───────────༺♡༻───────────╮");
+                    System.out.println();
                     System.out.println(displayBookStore);
+                    System.out.println();
+                    System.out.println("╰───────────༺♡༻───────────╯");
                     userStoreChoice = scan.nextLine();
                     if (userStoreChoice.equals("0"))
                     {
@@ -313,13 +317,19 @@ public class BookRunner
                         System.out.println(b.bookInfo());
                         while (true)
                         {
-                            
+                            clearScreen();
+                            System.out.println("╒═══════✰°");
+                            System.out.println();
                             String displayBook = "0: Exit book menu\n 1: Give book new title\n2: Give book new author\n3: Give book new year published\n4: Give book new isbn\n5: Give book new quantity\n6: Print info of book";
+                            System.out.println();
+                            System.out.println("°✰═══════╛");
                             System.out.println(displayBook);
                             String choice = scan.nextLine();
                             if (choice.equals("0"))
                             {
                                 System.out.println("Go to Option 3 to add the book you just made to the store!");
+                                scan.nextLine();
+                                clearScreen();
                                 break;
                             }
                             else if(choice.equals("1"))
@@ -327,39 +337,88 @@ public class BookRunner
                                 System.out.println("Enter the new title for your book: ");
                                 String newTitle = scan.nextLine();
                                 b.setTitle(newTitle);
+                                scan.nextLine();
+                                clearScreen();  
                             }
                             else if(choice.equals("2"))
                             {
                                 System.out.println("Enter the new author for your book: ");
                                 String newAuthor = scan.nextLine();
                                 b.setAuthor(newAuthor);
+                                scan.nextLine();
+                                clearScreen(); 
                             }
                             else if(choice.equals("3"))
                             {
                                 System.out.println("Enter the new year published for your book: ");
                                 int newYear = scan.nextInt();
                                 b.setYearPublished(newYear);
+                                scan.nextLine();
+                                clearScreen(); 
                             }
                             else if(choice.equals("4"))
                             {
                                 System.out.println("Enter the new ISBN for your book: ");
                                 String newIsbn = scan.nextLine();
                                 b.setIsbn(newIsbn);
+                                scan.nextLine();
+                                clearScreen(); 
                             }
                             else if(choice.equals("5"))
                             {
                                 System.out.println("Enter the new quantity for your book: ");
                                 int newQuantity = scan.nextInt();
                                 b.setQuantity(newQuantity);
+                                scan.nextLine();
+                                clearScreen(); 
                             }
                             else if (choice.equals("6"))
                             {
                                 System.out.println(b.bookInfo());
+                                scan.nextLine();
+                                clearScreen(); 
                             }
                         }
                         scan.nextLine();
                         clearScreen();
                     } 
+                    else if (userStoreChoice.equals("9"))
+                    {
+                        System.out.println("Do you want to use your book from Option 8 (1) or create one here? (2)");
+                        String choice = scan.nextLine();
+                        if (choice.equals("2"))
+                        {
+                             System.out.println("What do you want to name the Book: ");
+                             String name = scan.nextLine();
+                             System.out.println("Who is the Book's Author: ");
+                             String author = scan.nextLine();
+                             System.out.println("When was the Book published: ");
+                             int year = scan.nextInt();
+                             scan.nextLine();
+                             System.out.println("What is the ISBN of the book: ");
+                             String isbn = scan.nextLine();
+                             System.out.println("How many of the book does User have: ");
+                             int quantity = scan.nextInt();
+                             scan.nextLine();
+                             Book b1 = new Book(name, author, year, isbn, quantity);
+                             b = b1;
+                        }
+                        System.out.println("Your Book is: ");
+                        System.out.println(b.bookInfo());
+                        System.out.println("This is the list of books your store currently has:");
+                        System.out.println(bs.bookStoreBookInfo());
+                        System.out.println("Which number would you like your new book to be?");
+                        int c = scan.nextInt() - 1;
+                        if (c > bs.getBooks().length - 1)
+                        {
+                            c = bs.getBooks().length - 1;
+                        }
+                        scan.nextLine();
+                        System.out.println("Inserting " + b.getTitle());
+                        bs.insertBook(b, c);
+                        scan.nextLine();
+                        clearScreen();
+                    }
                 }
             } 
         }

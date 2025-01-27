@@ -225,6 +225,7 @@ public class BookStore{
                 stringToReturn += b.bookInfo() + "\n";
             }
             i++;
+            stringToReturn += "\n";
         }
         //returns the neatly displayed String.
         return stringToReturn;
