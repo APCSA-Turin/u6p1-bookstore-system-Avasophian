@@ -17,6 +17,7 @@ public class BookRunner
         String userMainChoice;
         String userUserChoice;
         String userStoreChoice;
+        BookStore bs = new BookStore();
         User u = null;
 
         while (true)
@@ -188,7 +189,6 @@ public class BookRunner
             else if (userMainChoice.equals("2")) 
             {
                 System.out.println("•───────•°•❀•°•───────•");
-                BookStore bs = new BookStore();
                 Book b = new Book(null, null, 0, null, 0);
                 clearScreen();
                 while (true)
