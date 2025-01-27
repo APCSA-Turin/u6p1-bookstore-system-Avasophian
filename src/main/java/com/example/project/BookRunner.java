@@ -7,11 +7,13 @@ public class BookRunner
     public static void main(String[] args) 
     {
         Scanner scan = new Scanner(System.in);
+        //Strings to display some of the "main menus"
         String displayMain = "0: Exit program\n1: User Menu\n2: Book Store Menu";
         String displayUser = "0: Finish. To add User to user array, go to Book Store Menu\n1: Create new User (do this first!)\n2: Change User's name\n3: Give User Books\n4: Print info of User\n5: Generate new ID for user\n6: Reset IDs";
         String displayBookStore = "0: Exit the BookStore\n1: Add User from User Menu\n2: Consolidate Users\n3: Remove a User\n4: Add a Book\n5: Remove a Book\n6: Print info of Books\n7: Print info of Users\n8: Create a Book to Add\n9: Insert a Book";
         System.out.println();
         System.out.println("𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓽𝓱𝓮 𝓑𝓸𝓸𝓴𝓼𝓽𝓸𝓻𝓮!");
+        //For the choices of the user throughout the program.
         String userMainChoice;
         String userUserChoice;
         String userStoreChoice;
@@ -46,6 +48,7 @@ public class BookRunner
                     System.out.println("╰─────────────────────────────────༺♡༻─────────────────────────────────╯");
                     userUserChoice = scan.nextLine();            
                     clearScreen();
+                    //Ends the loop if user chooses 0
                     if (userUserChoice.equals("0"))
                     {
                         if (userCreated == false)
@@ -69,6 +72,7 @@ public class BookRunner
                             }
                         } 
                     }
+                    //For creating a new object of the User class.
                     else if (userUserChoice.equals("1")) 
                     {
                         System.out.println("•───────•°•❀•°•───────•");
@@ -82,6 +86,8 @@ public class BookRunner
                         userCreated = true;
                         scan.nextLine();
                     } 
+
+                    //Allows the player to set a new name of the User class.
                     else if (userUserChoice.equals("2")) 
                     {
                         System.out.println("•───────•°•❀•°•───────•");
@@ -97,6 +103,7 @@ public class BookRunner
                         }
                         scan.nextLine();
                     } 
+                    //Allows the player to give the user Books.
                     else if (userUserChoice.equals("3"))
                     {
                         System.out.println("•───────•°•❀•°•───────•");
@@ -137,6 +144,7 @@ public class BookRunner
                         }
                         scan.nextLine();
                     }
+                    //Allows the player to see the information of their user.
                     else if (userUserChoice.equals("4"))
                     {
                         System.out.println("•───────•°•❀•°•───────•");
@@ -151,6 +159,7 @@ public class BookRunner
                         }
                         scan.nextLine();
                     }
+                    //Allows the player to generate a new ID for their user.
                     else if (userUserChoice.equals("5"))
                     {
                         System.out.println("•───────•°•❀•°•───────•");
@@ -166,6 +175,7 @@ public class BookRunner
                         }
                         scan.nextLine();
                     }
+                    // Allows the player to reset the ID, but doesn't assign it to their user.
                     else if (userUserChoice.equals("6"))
                     {
                         System.out.println("•───────•°•❀•°•───────•");
@@ -189,11 +199,14 @@ public class BookRunner
                     System.out.println();
                     System.out.println("╰───────────༺♡༻───────────╯");
                     userStoreChoice = scan.nextLine();
+                    // Allows the player to terminate the loop.
                     if (userStoreChoice.equals("0"))
                     {
                         clearScreen();
                         break;
                     } 
+                    // Allows the player to add the user from the user menu if they made one. 
+                    // If they didn't, directs them to the user menu.
                     else if (userStoreChoice.equals("1"))
                     {
                         if (u == null)
@@ -208,6 +221,7 @@ public class BookRunner
                         scan.nextLine();
                         clearScreen();
                     } 
+                    // Allows the player to consolidate users. 
                     else if (userStoreChoice.equals("2"))
                     {
                         bs.consolidateUsers();
@@ -215,6 +229,7 @@ public class BookRunner
                         scan.nextLine();
                         clearScreen();
                     } 
+                    // Allows the player to remove a user of their choice.
                     else if (userStoreChoice.equals("3"))
                     {
                         System.out.println("This is the list of users your store currently has:");
@@ -238,6 +253,7 @@ public class BookRunner
                         scan.nextLine();
                         clearScreen();
                     } 
+                    // Allows the user to add a book to the store.
                     else if (userStoreChoice.equals("4"))
                     {
                         System.out.println("Do you want to use your book from Option 8 (1) or create one here? (2)");
@@ -269,6 +285,7 @@ public class BookRunner
                         scan.nextLine();
                         clearScreen();
                     } 
+                    // Allows a user to remove a book of their choice.
                     else if (userStoreChoice.equals("5"))
                     {
                         System.out.println("This is the list of books your store currently has:");
@@ -285,18 +302,21 @@ public class BookRunner
                         scan.nextLine();
                         clearScreen();
                     } 
+                    //Prints the info of the books in the store.
                     else if (userStoreChoice.equals("6"))
                     {
                         System.out.println(bs.bookStoreBookInfo());
                         scan.nextLine();
                         clearScreen();
                     } 
+                    // Prints the info of the users in the store.
                     else if (userStoreChoice.equals("7"))
                     {
                         System.out.println(bs.bookStoreUserInfo());
                         scan.nextLine();
                         clearScreen();
                     } 
+                    // Allows the player to create a new book and edit its features.
                     else if (userStoreChoice.equals("8"))
                     {
                         System.out.println("What do you want to name the Book: ");
@@ -325,6 +345,7 @@ public class BookRunner
                             System.out.println("°✰═══════╛");
                             System.out.println(displayBook);
                             String choice = scan.nextLine();
+                            //Terminates the loop.
                             if (choice.equals("0"))
                             {
                                 System.out.println("Go to Option 3 to add the book you just made to the store!");
@@ -332,6 +353,7 @@ public class BookRunner
                                 clearScreen();
                                 break;
                             }
+                            //Allows the player to edit the title of their book.
                             else if(choice.equals("1"))
                             {
                                 System.out.println("Enter the new title for your book: ");
@@ -340,6 +362,7 @@ public class BookRunner
                                 scan.nextLine();
                                 clearScreen();  
                             }
+                            //Allows the player to edit the author of their book.
                             else if(choice.equals("2"))
                             {
                                 System.out.println("Enter the new author for your book: ");
@@ -348,6 +371,7 @@ public class BookRunner
                                 scan.nextLine();
                                 clearScreen(); 
                             }
+                            //Allows the player to edit the year published of their book.
                             else if(choice.equals("3"))
                             {
                                 System.out.println("Enter the new year published for your book: ");
@@ -356,6 +380,7 @@ public class BookRunner
                                 scan.nextLine();
                                 clearScreen(); 
                             }
+                            //Allows the player to edit the ISBN of their book.
                             else if(choice.equals("4"))
                             {
                                 System.out.println("Enter the new ISBN for your book: ");
@@ -364,6 +389,7 @@ public class BookRunner
                                 scan.nextLine();
                                 clearScreen(); 
                             }
+                            //Allows the player to edit the quantity of their book.
                             else if(choice.equals("5"))
                             {
                                 System.out.println("Enter the new quantity for your book: ");
@@ -372,6 +398,7 @@ public class BookRunner
                                 scan.nextLine();
                                 clearScreen(); 
                             }
+                            //Prints the info of the book.
                             else if (choice.equals("6"))
                             {
                                 System.out.println(b.bookInfo());
@@ -382,6 +409,7 @@ public class BookRunner
                         scan.nextLine();
                         clearScreen();
                     } 
+                    // Allows the user to insert a book to an index of their choosing.
                     else if (userStoreChoice.equals("9"))
                     {
                         System.out.println("Do you want to use your book from Option 8 (1) or create one here? (2)");
